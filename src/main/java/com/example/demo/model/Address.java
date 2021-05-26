@@ -18,4 +18,10 @@ public class Address {
     private String commune;
 
     private String hamlet;
+
+    @Override
+    public String toString() {
+        if(hamlet==null) hamlet="";
+        return province+"-"+district+"-"+commune+"-"+hamlet;
+    }
 }

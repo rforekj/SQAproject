@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface ConfigService {
     SocialInsuranceType updateInsuranceType(int id, double price);
+
     List<SocialInsuranceType> getAllInsuranceType();
 }

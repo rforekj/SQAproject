@@ -5,9 +5,6 @@ import com.example.demo.service.dto.SocialInsuranceRespondDto;
 import com.example.demo.service.util.DateUtil;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,13 +21,13 @@ public class SocialInsuranceMapper {
 
         Date theLastDayOfPreviousMonth = DateUtil.getTheLastDayOfPreviousMonth();
         Date theFirstDayOfNextMonth = DateUtil.getTheFirstDayOfNextMonth();
-        if(socialInsurance.getExpiredDate().before(theLastDayOfPreviousMonth))
+        if (socialInsurance.getExpiredDate().before(theLastDayOfPreviousMonth))
             socialInsuranceRespondDto.setStatus(SocialInsuranceRespondDto.Status.LATE_PAID);
-        else if(socialInsurance.getExpiredDate().before(theFirstDayOfNextMonth))
+        else if (socialInsurance.getExpiredDate().before(theFirstDayOfNextMonth))
             socialInsuranceRespondDto.setStatus(SocialInsuranceRespondDto.Status.HAVE_NOT_PAID);
         else
             socialInsuranceRespondDto.setStatus(SocialInsuranceRespondDto.Status.HAVE_PAID);
-        if(socialInsurance.isPaid())
+        if (socialInsurance.isPaid())
             socialInsuranceRespondDto.setStatus(SocialInsuranceRespondDto.Status.RECEIVED);
         return socialInsuranceRespondDto;
     }

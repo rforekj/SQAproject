@@ -16,8 +16,8 @@ public class SocialInsuranceRespondDto {
     private Date createdDate;
 
     private Status status;
-    
-    public enum Status{
+
+    public enum Status {
         HAVE_PAID,
         HAVE_NOT_PAID,
         LATE_PAID,

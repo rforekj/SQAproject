@@ -4,7 +4,11 @@ import com.example.demo.model.Client;
 import com.example.demo.model.SocialInsurance;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -32,4 +36,5 @@ public interface ClientRepository extends CrudRepository<Client, Long> {
     Page<Client> findAllByAddress_ProvinceAndAddress_DistrictAndAddress_CommuneAndSocialInsuranceListIsIn(String province, String district, String commune, List<SocialInsurance> list, Pageable pageable);
 
     Page<Client> findAllByAddress_ProvinceAndAddress_DistrictAndAddress_CommuneAndAddress_HamletAndSocialInsuranceListIsIn(String province, String district, String commune, String hamlet, List<SocialInsurance> list, Pageable pageable);
+
 }

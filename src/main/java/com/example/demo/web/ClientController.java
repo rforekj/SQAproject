@@ -1,5 +1,8 @@
 package com.example.demo.web;
 
+import com.example.demo.config.Constants;
+import com.example.demo.model.Client;
+import com.example.demo.model.SocialInsurance;
 import com.example.demo.service.ClientService;
 import com.example.demo.service.dto.ClientRespondDto;
 import com.example.demo.service.dto.SocialInsuranceRespondDto;
@@ -7,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/client")
@@ -33,5 +38,6 @@ public class ClientController {
     public ClientRespondDto findClient(@RequestParam String keyword) {
         return clientService.findClient(keyword);
     }
+
 
 }

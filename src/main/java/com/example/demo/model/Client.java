@@ -25,6 +25,10 @@ public class Client extends AbstractEntity {
 
     private double salary;
 
+    private double paidMoney;
+
+    private double receivedMoney;
+
     @ManyToOne
     private Address address;
 

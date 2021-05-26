@@ -18,7 +18,7 @@ public class ConfigServiceImpl implements ConfigService {
     @Override
     public SocialInsuranceType updateInsuranceType(int id, double price) {
         Optional<SocialInsuranceType> socialInsuranceType = socialInsuranceTypeRepository.findById(id);
-        if(!socialInsuranceType.isPresent()) return null;
+        if (!socialInsuranceType.isPresent()) return null;
         socialInsuranceType.get().setPrice(price);
         return socialInsuranceTypeRepository.save(socialInsuranceType.get());
     }

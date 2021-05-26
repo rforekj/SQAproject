@@ -2,7 +2,6 @@ package com.example.demo.service.dto;
 
 import com.example.demo.model.Address;
 import com.example.demo.model.Client;
-import com.example.demo.model.SocialInsurance;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -25,6 +24,14 @@ public class ClientRespondDto {
     private double salary;
 
     private Address address;
+
+    private Double paidMoney;
+
+    private Double receivedMoney;
+
+    private Double moneyNeedToPaidThisMonth;
+
+    private Double moneyPaidThisMonth;
 
     private List<SocialInsuranceRespondDto> socialInsuranceList;
 }

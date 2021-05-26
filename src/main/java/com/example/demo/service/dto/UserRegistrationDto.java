@@ -1,5 +1,6 @@
 package com.example.demo.service.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,6 +20,7 @@ public class UserRegistrationDto {
     @NotBlank(message = "password must not be blank")
     private String password;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @NotNull(message = "date of birth must not be blank")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
