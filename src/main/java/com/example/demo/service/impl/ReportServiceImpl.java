@@ -37,7 +37,7 @@ public class ReportServiceImpl implements ReportService {
         for (SocialInsurance socialInsurance : socialInsuranceList) {
             Date createdDate = Date.from(socialInsurance.getCreatedDate());
             Date receivedDate = socialInsurance.getExpiredDate();
-            if(receivedDate.before(theFirstDayOfNextMonth) && receivedDate.after(theLastDayOfPreviousMonth)) {
+            if (receivedDate.before(theFirstDayOfNextMonth) && receivedDate.after(theLastDayOfPreviousMonth)) {
                 long diffMonth = TimeUnit.DAYS.convert(receivedDate.getTime() - createdDate.getTime(), TimeUnit.MILLISECONDS) / 30;
                 moneyReceived += diffMonth * 2 * socialInsurance.getType().getPrice() * socialInsurance.getClient().getSalary() * 0.01;
             }

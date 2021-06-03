@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.junit;
 
 import com.example.demo.model.SocialInsurance;
 import com.example.demo.service.dto.SocialInsuranceRespondDto;
@@ -29,7 +29,7 @@ public class SocialInsuranceMapperTest {
         SocialInsurance socialInsurance = new SocialInsurance();
         socialInsurance.setExpiredDate(simpleDateFormat.parse("30-04-2021"));
         SocialInsuranceRespondDto socialInsuranceRespondDto = socialInsuranceMapper.socialInsuranceToSocialInsuranceRespondDto(socialInsurance);
-        Assert.assertEquals(socialInsuranceRespondDto.getStatus(),SocialInsuranceRespondDto.Status.LATE_PAID);
+        Assert.assertEquals(socialInsuranceRespondDto.getStatus(), SocialInsuranceRespondDto.Status.LATE_PAID);
     }
 
     @Test
@@ -38,62 +38,63 @@ public class SocialInsuranceMapperTest {
         SocialInsurance socialInsurance = new SocialInsurance();
         socialInsurance.setExpiredDate(simpleDateFormat.parse("12-02-2021"));
         SocialInsuranceRespondDto socialInsuranceRespondDto = socialInsuranceMapper.socialInsuranceToSocialInsuranceRespondDto(socialInsurance);
-        Assert.assertEquals(socialInsuranceRespondDto.getStatus(),SocialInsuranceRespondDto.Status.LATE_PAID);
+        Assert.assertEquals(socialInsuranceRespondDto.getStatus(), SocialInsuranceRespondDto.Status.LATE_PAID);
     }
 
     @Test
     public void testStatusHaveNotPaid1() throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         SocialInsurance socialInsurance = new SocialInsurance();
-        socialInsurance.setExpiredDate(simpleDateFormat.parse("30-05-2021"));
+        socialInsurance.setExpiredDate(simpleDateFormat.parse("30-06-2021"));
         SocialInsuranceRespondDto socialInsuranceRespondDto = socialInsuranceMapper.socialInsuranceToSocialInsuranceRespondDto(socialInsurance);
-        Assert.assertEquals(socialInsuranceRespondDto.getStatus(),SocialInsuranceRespondDto.Status.HAVE_NOT_PAID);
+        Assert.assertEquals(socialInsuranceRespondDto.getStatus(), SocialInsuranceRespondDto.Status.HAVE_NOT_PAID);
     }
 
     @Test
     public void testStatusHaveNotPaid2() throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         SocialInsurance socialInsurance = new SocialInsurance();
-        socialInsurance.setExpiredDate(simpleDateFormat.parse("12-05-2021"));
+        socialInsurance.setExpiredDate(simpleDateFormat.parse("12-06-2021"));
         SocialInsuranceRespondDto socialInsuranceRespondDto = socialInsuranceMapper.socialInsuranceToSocialInsuranceRespondDto(socialInsurance);
-        Assert.assertEquals(socialInsuranceRespondDto.getStatus(),SocialInsuranceRespondDto.Status.HAVE_NOT_PAID);
+        Assert.assertEquals(socialInsuranceRespondDto.getStatus(), SocialInsuranceRespondDto.Status.HAVE_NOT_PAID);
     }
 
     @Test
     public void testStatusHavePaid1() throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         SocialInsurance socialInsurance = new SocialInsurance();
-        socialInsurance.setExpiredDate(simpleDateFormat.parse("30-06-2021"));
+        socialInsurance.setExpiredDate(simpleDateFormat.parse("30-07-2021"));
         SocialInsuranceRespondDto socialInsuranceRespondDto = socialInsuranceMapper.socialInsuranceToSocialInsuranceRespondDto(socialInsurance);
-        Assert.assertEquals(socialInsuranceRespondDto.getStatus(),SocialInsuranceRespondDto.Status.HAVE_PAID);
+        Assert.assertEquals(socialInsuranceRespondDto.getStatus(), SocialInsuranceRespondDto.Status.HAVE_PAID);
     }
+
     @Test
     public void testStatusHavePaid2() throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         SocialInsurance socialInsurance = new SocialInsurance();
-        socialInsurance.setExpiredDate(simpleDateFormat.parse("01-06-2021"));
+        socialInsurance.setExpiredDate(simpleDateFormat.parse("01-07-2021"));
         SocialInsuranceRespondDto socialInsuranceRespondDto = socialInsuranceMapper.socialInsuranceToSocialInsuranceRespondDto(socialInsurance);
-        Assert.assertEquals(socialInsuranceRespondDto.getStatus(),SocialInsuranceRespondDto.Status.HAVE_PAID);
+        Assert.assertEquals(socialInsuranceRespondDto.getStatus(), SocialInsuranceRespondDto.Status.HAVE_PAID);
     }
 
     @Test
     public void testStatusReceived1() throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         SocialInsurance socialInsurance = new SocialInsurance();
-        socialInsurance.setExpiredDate(simpleDateFormat.parse("29-04-2021"));
+        socialInsurance.setExpiredDate(simpleDateFormat.parse("29-05-2021"));
         socialInsurance.setPaid(true);
         SocialInsuranceRespondDto socialInsuranceRespondDto = socialInsuranceMapper.socialInsuranceToSocialInsuranceRespondDto(socialInsurance);
-        Assert.assertEquals(socialInsuranceRespondDto.getStatus(),SocialInsuranceRespondDto.Status.RECEIVED);
+        Assert.assertEquals(socialInsuranceRespondDto.getStatus(), SocialInsuranceRespondDto.Status.RECEIVED);
     }
 
     @Test
     public void testStatusReceived2() throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         SocialInsurance socialInsurance = new SocialInsurance();
-        socialInsurance.setExpiredDate(simpleDateFormat.parse("29-04-2021"));
+        socialInsurance.setExpiredDate(simpleDateFormat.parse("29-05-2021"));
         socialInsurance.setPaid(false);
         SocialInsuranceRespondDto socialInsuranceRespondDto = socialInsuranceMapper.socialInsuranceToSocialInsuranceRespondDto(socialInsurance);
-        Assert.assertNotEquals(socialInsuranceRespondDto.getStatus(),SocialInsuranceRespondDto.Status.RECEIVED);
+        Assert.assertNotEquals(socialInsuranceRespondDto.getStatus(), SocialInsuranceRespondDto.Status.RECEIVED);
     }
 
 }

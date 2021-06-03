@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.junit;
 
 import com.example.demo.config.JwtTokenUtil;
 import com.example.demo.model.SocialInsuranceType;
@@ -36,25 +36,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 public class ConfigControllerTest {
     @Autowired
-    private MockMvc mvc;
-
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
-
-    @Autowired
-    private UserService userDetailsService;
-
-    @Autowired
     ConfigService configService;
-
     @Autowired
     SocialInsuranceTypeRepository socialInsuranceTypeRepository;
-
     String adminToken;
     String employeeToken;
+    @Autowired
+    private MockMvc mvc;
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+    @Autowired
+    private UserService userDetailsService;
 
     @PostConstruct
     public void init() {

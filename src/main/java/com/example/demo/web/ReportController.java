@@ -48,7 +48,7 @@ public class ReportController {
                                       @RequestParam(required = false) String commune,
                                       @RequestParam(required = false) String hamlet,
                                       @RequestParam(required = false) SocialInsuranceRespondDto.Status status) throws IOException {
-        Map<String, Object> result = clientService.findClientByAddress(province, district, commune, hamlet, status,1,10000);
+        Map<String, Object> result = clientService.findClientByAddress(province, district, commune, hamlet, status, 1, 10000);
         List<ClientRespondDto> clients = (List<ClientRespondDto>) result.get("listClient");
 
         ByteArrayInputStream in = ExcelExporter.clientsToExcel(clients, province, district, commune, hamlet, status);

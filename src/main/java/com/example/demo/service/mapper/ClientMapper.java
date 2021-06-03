@@ -37,7 +37,7 @@ public class ClientMapper {
         double moneyNeedToPaidThisMonth = 0;
         double moneyPaidThisMonth = 0;
         for (SocialInsuranceRespondDto socialInsurance : clientDto.getSocialInsuranceList()) {
-            if(!socialInsurance.getStatus().equals(SocialInsuranceRespondDto.Status.RECEIVED)) {
+            if (!socialInsurance.getStatus().equals(SocialInsuranceRespondDto.Status.RECEIVED)) {
                 moneyNeedToPaidThisMonth += Constants.PERCENT_PAID_AMOUNT * client.getSalary();
                 if (socialInsurance.getStatus().equals(SocialInsuranceRespondDto.Status.HAVE_PAID))
                     moneyPaidThisMonth += Constants.PERCENT_PAID_AMOUNT * client.getSalary();

@@ -27,12 +27,12 @@ public class ExcelExporter {
                                                       String province, String district, String commune, String hamlet,
                                                       SocialInsuranceRespondDto.Status status) throws IOException {
         LocalDate d = LocalDate.now();
-        String month = d.getMonth()+"/"+d.getYear();
-        String[] columns = {"Id", "Name","Gender", "Date of birth", "Salary", "Address", "Paid money", "Money need to Paid"};
-        try(
+        String month = d.getMonth() + "/" + d.getYear();
+        String[] columns = {"Id", "Name", "Gender", "Date of birth", "Salary", "Address", "Paid money", "Money need to Paid"};
+        try (
                 Workbook workbook = new XSSFWorkbook();
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
-        ){
+        ) {
             CreationHelper createHelper = workbook.getCreationHelper();
 
             Sheet sheet = workbook.createSheet("clients");
@@ -44,27 +44,27 @@ public class ExcelExporter {
             CellStyle headerCellStyle = workbook.createCellStyle();
             headerCellStyle.setFont(headerFont);
 
-            int i=0;
+            int i = 0;
             Row desRow = sheet.createRow(i);
             Cell des0 = desRow.createCell(i);
-            des0.setCellValue("Báo cáo tháng "+month);
-            if(province!=null) {
+            des0.setCellValue("Báo cáo tháng " + month);
+            if (province != null) {
                 Cell des1 = desRow.createCell(++i);
                 des1.setCellValue("Tỉnh/Thành phố: " + province);
             }
-            if(district!=null) {
+            if (district != null) {
                 Cell des2 = desRow.createCell(++i);
                 des2.setCellValue("Quận/Huyện: " + district);
             }
-            if(commune!=null) {
+            if (commune != null) {
                 Cell des3 = desRow.createCell(++i);
                 des3.setCellValue("Phường/Xã: " + commune);
             }
-            if(hamlet!=null) {
+            if (hamlet != null) {
                 Cell des4 = desRow.createCell(++i);
                 des4.setCellValue("Thôn/Xóm: " + hamlet);
             }
-            if(status!=null) {
+            if (status != null) {
                 Cell des5 = desRow.createCell(++i);
                 des5.setCellValue("Trạng thái: " + status);
             }
@@ -96,7 +96,7 @@ public class ExcelExporter {
                 totalPaidMoney += client.getMoneyPaidThisMonth();
             }
 
-            Row total = sheet.createRow(rowIdx+1);
+            Row total = sheet.createRow(rowIdx + 1);
             total.createCell(0).setCellValue("Tổng");
             total.createCell(1).setCellValue(clients.size());
             total.createCell(6).setCellValue(totalPaidMoney);

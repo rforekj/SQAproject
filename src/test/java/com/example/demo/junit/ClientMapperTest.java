@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.junit;
 
 import com.example.demo.model.Client;
 import com.example.demo.model.SocialInsurance;
@@ -37,11 +37,11 @@ public class ClientMapperTest {
         socialInsurance.setExpiredDate(new Date());
         SocialInsurance socialInsurance1 = new SocialInsurance();
         socialInsurance1.setPaid(false);
-        socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-06-2021"));
-        client.setSocialInsuranceList(Arrays.asList(socialInsurance,socialInsurance1));
+        socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-07-2021"));
+        client.setSocialInsuranceList(Arrays.asList(socialInsurance, socialInsurance1));
         ClientRespondDto clientRespondDto = clientMapper.clientToClientRespondDto(client);
-        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(),new Double(8));
-        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(),new Double(8));
+        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(), new Double(8));
+        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(), new Double(8));
     }
 
     @Test //1 received. 1 have not paid
@@ -55,10 +55,10 @@ public class ClientMapperTest {
         SocialInsurance socialInsurance1 = new SocialInsurance();
         socialInsurance1.setPaid(false);
         socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-04-2021"));
-        client.setSocialInsuranceList(Arrays.asList(socialInsurance,socialInsurance1));
+        client.setSocialInsuranceList(Arrays.asList(socialInsurance, socialInsurance1));
         ClientRespondDto clientRespondDto = clientMapper.clientToClientRespondDto(client);
-        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(),new Double(16));
-        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(),new Double(0));
+        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(), new Double(16));
+        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(), new Double(0));
     }
 
     @Test //1 have paid. 1 have not paid
@@ -71,11 +71,11 @@ public class ClientMapperTest {
         socialInsurance.setExpiredDate(simpleDateFormat.parse("30-04-2021"));
         SocialInsurance socialInsurance1 = new SocialInsurance();
         socialInsurance1.setPaid(false);
-        socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-06-2021"));
-        client.setSocialInsuranceList(Arrays.asList(socialInsurance,socialInsurance1));
+        socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-07-2021"));
+        client.setSocialInsuranceList(Arrays.asList(socialInsurance, socialInsurance1));
         ClientRespondDto clientRespondDto = clientMapper.clientToClientRespondDto(client);
-        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(),new Double(16));
-        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(),new Double(8));
+        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(), new Double(16));
+        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(), new Double(8));
     }
 
     @Test //2 have paid. 1 have not paid
@@ -88,14 +88,14 @@ public class ClientMapperTest {
         socialInsurance.setExpiredDate(simpleDateFormat.parse("30-04-2021"));
         SocialInsurance socialInsurance1 = new SocialInsurance();
         socialInsurance1.setPaid(false);
-        socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-06-2021"));
+        socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-07-2021"));
         SocialInsurance socialInsurance2 = new SocialInsurance();
         socialInsurance2.setPaid(false);
-        socialInsurance2.setExpiredDate(simpleDateFormat.parse("30-06-2021"));
-        client.setSocialInsuranceList(Arrays.asList(socialInsurance,socialInsurance1, socialInsurance2));
+        socialInsurance2.setExpiredDate(simpleDateFormat.parse("30-07-2021"));
+        client.setSocialInsuranceList(Arrays.asList(socialInsurance, socialInsurance1, socialInsurance2));
         ClientRespondDto clientRespondDto = clientMapper.clientToClientRespondDto(client);
-        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(),new Double(24));
-        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(),new Double(16));
+        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(), new Double(24));
+        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(), new Double(16));
     }
 
     @Test  //1 have paid. 2 have not paid
@@ -111,11 +111,11 @@ public class ClientMapperTest {
         socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-04-2021"));
         SocialInsurance socialInsurance2 = new SocialInsurance();
         socialInsurance2.setPaid(false);
-        socialInsurance2.setExpiredDate(simpleDateFormat.parse("30-06-2021"));
-        client.setSocialInsuranceList(Arrays.asList(socialInsurance,socialInsurance1,socialInsurance2));
+        socialInsurance2.setExpiredDate(simpleDateFormat.parse("30-07-2021"));
+        client.setSocialInsuranceList(Arrays.asList(socialInsurance, socialInsurance1, socialInsurance2));
         ClientRespondDto clientRespondDto = clientMapper.clientToClientRespondDto(client);
-        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(),new Double(24));
-        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(),new Double(8));
+        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(), new Double(24));
+        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(), new Double(8));
     }
 
     @Test
@@ -128,10 +128,10 @@ public class ClientMapperTest {
         socialInsurance.setExpiredDate(new Date());
         SocialInsurance socialInsurance1 = new SocialInsurance();
         socialInsurance1.setPaid(false);
-        socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-06-2021"));
-        client.setSocialInsuranceList(Arrays.asList(socialInsurance,socialInsurance1));
+        socialInsurance1.setExpiredDate(simpleDateFormat.parse("30-07-2021"));
+        client.setSocialInsuranceList(Arrays.asList(socialInsurance, socialInsurance1));
         ClientRespondDto clientRespondDto = clientMapper.clientToClientRespondDto(client);
-        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(),new Double(8));
-        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(),new Double(8));
+        Assert.assertEquals(clientRespondDto.getMoneyNeedToPaidThisMonth(), new Double(8));
+        Assert.assertEquals(clientRespondDto.getMoneyPaidThisMonth(), new Double(8));
     }
 }

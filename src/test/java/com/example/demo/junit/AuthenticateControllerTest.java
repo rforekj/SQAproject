@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.junit;
 
 import com.example.demo.config.JwtTokenUtil;
 import com.example.demo.model.User;
@@ -54,7 +54,8 @@ public class AuthenticateControllerTest {
         String password = "123456";
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         final UserDetails userDetails = userDetailsService.loadUserByUsername(email);
-        String token = jwtTokenUtil.generateToken(userDetails);;
+        String token = jwtTokenUtil.generateToken(userDetails);
+        ;
         assertNotNull(token);
     }
 
@@ -71,7 +72,8 @@ public class AuthenticateControllerTest {
         String password = "123456";
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         final UserDetails userDetails = userDetailsService.loadUserByUsername(email);
-        String token = jwtTokenUtil.generateToken(userDetails);;
+        String token = jwtTokenUtil.generateToken(userDetails);
+        ;
         assertNotNull(token);
         UserRegistrationDto userRegistrationDto = new UserRegistrationDto();
         userRegistrationDto.setName("hieu");
@@ -82,7 +84,7 @@ public class AuthenticateControllerTest {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(userRegistrationDto);
         mvc.perform(MockMvcRequestBuilders.post("/register")
-                .header("Authorization", "Bearer "+token)
+                .header("Authorization", "Bearer " + token)
                 .contentType(APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().isForbidden());
@@ -105,7 +107,7 @@ public class AuthenticateControllerTest {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(userRegistrationDto);
         mvc.perform(MockMvcRequestBuilders.post("/register")
-                .header("Authorization", "Bearer "+token)
+                .header("Authorization", "Bearer " + token)
                 .contentType(APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().isOk());
@@ -135,7 +137,7 @@ public class AuthenticateControllerTest {
 
         //Test register duplicate email
         mvc.perform(MockMvcRequestBuilders.post("/register")
-                .header("Authorization", "Bearer "+token)
+                .header("Authorization", "Bearer " + token)
                 .contentType(APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().is(400))
@@ -145,7 +147,7 @@ public class AuthenticateControllerTest {
         userRegistrationDto.setName(null);
         json = mapper.writeValueAsString(userRegistrationDto);
         mvc.perform(MockMvcRequestBuilders.post("/register")
-                .header("Authorization", "Bearer "+token)
+                .header("Authorization", "Bearer " + token)
                 .contentType(APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().is(400))
@@ -157,7 +159,7 @@ public class AuthenticateControllerTest {
         userRegistrationDto.setPassword(null);
         json = mapper.writeValueAsString(userRegistrationDto);
         mvc.perform(MockMvcRequestBuilders.post("/register")
-                .header("Authorization", "Bearer "+token)
+                .header("Authorization", "Bearer " + token)
                 .contentType(APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().is(400))
@@ -169,7 +171,7 @@ public class AuthenticateControllerTest {
         userRegistrationDto.setEmail(null);
         json = mapper.writeValueAsString(userRegistrationDto);
         mvc.perform(MockMvcRequestBuilders.post("/register")
-                .header("Authorization", "Bearer "+token)
+                .header("Authorization", "Bearer " + token)
                 .contentType(APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().is(400))
@@ -190,6 +192,7 @@ public class AuthenticateControllerTest {
                 .andExpect(status().is(500))
                 .andExpect(content().string("Not found id user"));
     }
+
     @Test
     public void testDeleteSucceed() throws Exception {
         //Test delete succeed
@@ -198,7 +201,7 @@ public class AuthenticateControllerTest {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         UserDetails userDetails = userDetailsService.loadUserByUsername(email);
         String token = jwtTokenUtil.generateToken(userDetails);
-        mvc.perform(MockMvcRequestBuilders.delete("/user/112")
+        mvc.perform(MockMvcRequestBuilders.delete("/user/134")
                 .header("Authorization", "Bearer " + token))
                 .andExpect(status().is(200));
 
@@ -207,6 +210,7 @@ public class AuthenticateControllerTest {
         if (!user.isPresent()) user = null;
         assertNull(user);
     }
+
     @Test
     public void testDeleteWithRoleEmployee() throws Exception {
         //Test delete with role employee
@@ -216,7 +220,7 @@ public class AuthenticateControllerTest {
         UserDetails userDetails = userDetailsService.loadUserByUsername(email);
         String token = jwtTokenUtil.generateToken(userDetails);
         mvc.perform(MockMvcRequestBuilders.delete("/user/106")
-                .header("Authorization", "Bearer "+token))
+                .header("Authorization", "Bearer " + token))
                 .andExpect(status().is(403));
 
     }

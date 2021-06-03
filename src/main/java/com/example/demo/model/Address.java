@@ -21,7 +21,7 @@ public class Address {
 
     @Override
     public String toString() {
-        if(hamlet==null) hamlet="";
-        return province+"-"+district+"-"+commune+"-"+hamlet;
+        if (hamlet == null) hamlet = "";
+        return province + "-" + district + "-" + commune + "-" + hamlet;
     }
 }

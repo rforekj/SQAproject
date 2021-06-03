@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.repository.CrudRepository;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<User, Long> {
@@ -17,4 +18,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     @Modifying
     void deleteById(Long id);
+
+    @Modifying
+    @Transactional
+    void deleteByEmail(String email);
 }
