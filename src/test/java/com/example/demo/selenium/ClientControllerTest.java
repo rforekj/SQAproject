@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
@@ -40,9 +42,9 @@ public class ClientControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Theo dõi danh sách']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement selectStatus = driver.findElement(By.xpath("//span[@class='ant-select-selection-search']/input[@id='select-status']"));
         selectStatus.sendKeys(Keys.ENTER);
         selectStatus.sendKeys(Keys.ARROW_DOWN);
@@ -67,9 +69,9 @@ public class ClientControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Theo dõi danh sách']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement selectStatus = driver.findElement(By.xpath("//span[@class='ant-select-selection-search']/input[@id='select-status']"));
         selectStatus.sendKeys(Keys.ENTER);
         selectStatus.sendKeys(Keys.ARROW_DOWN);
@@ -92,9 +94,9 @@ public class ClientControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Theo dõi danh sách']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement selectStatus = driver.findElement(By.xpath("//span[@class='ant-select-selection-search']/input[@id='select-status']"));
         selectStatus.sendKeys(Keys.ENTER);
         selectStatus.sendKeys(Keys.ARROW_DOWN);
@@ -117,9 +119,9 @@ public class ClientControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Theo dõi danh sách']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement selectStatus = driver.findElement(By.xpath("//span[@class='ant-select-selection-search']/input[@id='select-status']"));
         selectStatus.sendKeys(Keys.ENTER);
         selectStatus.sendKeys(Keys.ARROW_DOWN);
@@ -137,16 +139,17 @@ public class ClientControllerTest {
                 driver.findElement(By.xpath("//button/span[text()='OK']")).click();
                 break;
             }
-        }}
+        }
+    }
 
     @Test
-    public void getAllClientByProvince() {
+    public void getAllClientByProvince() throws IOException {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Theo dõi danh sách']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement select = driver.findElement(By.xpath("//span[contains(@class, 'ant-select-selection-search')]/input"));
         select.sendKeys(Keys.ENTER);
         select.sendKeys(Keys.ARROW_DOWN);
@@ -157,22 +160,22 @@ public class ClientControllerTest {
             String address = driver.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[9]")).getText();
             Assert.assertEquals(true, address.contains("Hà Nội"));
         }
-
+        takeScreenshot(UrlConfig.imageUrl + "getAllClientByProvince.jpg");
     }
 
     @Test
-    public void getAllClientByDistrict() {
+    public void getAllClientByDistrict() throws IOException {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Theo dõi danh sách']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement selectProvince = driver.findElement(By.xpath("//span[@class='ant-select-selection-search']/input[@id='select-province']"));
         selectProvince.sendKeys(Keys.ENTER);
         selectProvince.sendKeys(Keys.ARROW_DOWN);
         selectProvince.sendKeys(Keys.ENTER);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement selectDistrict = driver.findElement(By.xpath("//span[@class='ant-select-selection-search']/input[@id='select-district']"));
         selectDistrict.sendKeys(Keys.ENTER);
         selectDistrict.sendKeys(Keys.ARROW_DOWN);
@@ -184,26 +187,27 @@ public class ClientControllerTest {
             Assert.assertEquals(true, address.contains("Hà Nội"));
             Assert.assertEquals(true, address.contains("Hai Bà Trưng"));
         }
+        takeScreenshot(UrlConfig.imageUrl + "getAllClientByDistrict.jpg");
     }
 
     @Test
-    public void getAllClientByCommune() {
+    public void getAllClientByCommune() throws IOException {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Theo dõi danh sách']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement selectProvince = driver.findElement(By.xpath("//span[@class='ant-select-selection-search']/input[@id='select-province']"));
         selectProvince.sendKeys(Keys.ENTER);
         selectProvince.sendKeys(Keys.ARROW_DOWN);
         selectProvince.sendKeys(Keys.ENTER);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement selectDistrict = driver.findElement(By.xpath("//span[@class='ant-select-selection-search']/input[@id='select-district']"));
         selectDistrict.sendKeys(Keys.ENTER);
         selectDistrict.sendKeys(Keys.ARROW_DOWN);
         selectDistrict.sendKeys(Keys.ENTER);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement selectCommune = driver.findElement(By.xpath("//span[@class='ant-select-selection-search']/input[@id='select-commune']"));
         selectCommune.sendKeys(Keys.ENTER);
         selectCommune.sendKeys(Keys.ARROW_DOWN);
@@ -216,26 +220,46 @@ public class ClientControllerTest {
             Assert.assertEquals(true, address.contains("Hai Bà Trưng"));
             Assert.assertEquals(true, address.contains("Thanh Lương"));
         }
+        takeScreenshot(UrlConfig.imageUrl + "getAllClientByCommune.jpg");
     }
 
     @Test
-    public void searchClientByIdentityNumber() {
+    public void searchClientByIdentityNumber() throws IOException {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Theo dõi danh sách']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//span/input")).sendKeys("235034549900");
         driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-icon-only ant-input-search-button']")).click();
         String identityNumber = driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText();
         Assert.assertEquals("235034549900", identityNumber);
+        takeScreenshot(UrlConfig.imageUrl + "searchClientByIdentityNumber.jpg");
+    }
+
+    @Test
+    public void searchClientByInsuranceNumber() throws IOException {
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
+        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
+        driver.findElement(By.xpath("//button[@type='submit']")).submit();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//button/span[text()='Theo dõi danh sách']")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//span/input")).sendKeys("10");
+        driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-icon-only ant-input-search-button']")).click();
+        driver.findElement(By.xpath("//table/tbody/tr[1]/td[10]/div/img")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='table_detail']")));
+        String id = driver.findElement(By.xpath("//div[@id='table_detail']/div/div/table/tbody/tr[1]/td[1]")).getText();
+        Assert.assertEquals("10", id);
+        takeScreenshot(UrlConfig.imageUrl + "searchClientByInsuranceNumber.jpg");
     }
 
 
     @After
     public void closeBrowser() {
-        driver.close();
+        //driver.close();
     }
 
     public void takeScreenshot(String pathname) throws IOException {

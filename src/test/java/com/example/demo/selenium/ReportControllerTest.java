@@ -37,9 +37,9 @@ public class ReportControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Xuất báo cáo']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Xuất báo cáo']")).click();
     }
 

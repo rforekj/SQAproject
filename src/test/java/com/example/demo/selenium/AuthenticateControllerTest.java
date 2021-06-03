@@ -45,7 +45,7 @@ public class AuthenticateControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         boolean isLogged = driver.findElement(By.xpath("//*[text()='hieu']")).isDisplayed();
         Assert.assertEquals(true, isLogged);
         takeScreenshot(UrlConfig.imageUrl + "testLoginSuccess.jpg");
@@ -76,9 +76,9 @@ public class AuthenticateControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Quản lý nhân viên']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Thêm nhân viên']")).click();
         driver.findElement(By.xpath("//input[@id='name']")).sendKeys("hieu");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu200@gmail.com");
@@ -100,9 +100,9 @@ public class AuthenticateControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Quản lý nhân viên']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Thêm nhân viên']")).click();
         driver.findElement(By.xpath("//input[@id='name']")).sendKeys("hieu");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu11@gmail.com");
@@ -122,9 +122,9 @@ public class AuthenticateControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Quản lý nhân viên']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//table/tbody/tr[2]/td[7]/div/img")).click();
         WebElement col = driver.findElement(By.xpath("//table/tbody/tr[2]/td[1]"));
         Long idCol = Long.parseLong(col.getText());

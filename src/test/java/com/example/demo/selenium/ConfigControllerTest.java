@@ -40,9 +40,9 @@ public class ConfigControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Thay đổi cấu hình']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]/div/img")).click();
         WebElement col = driver.findElement(By.xpath("//table/tbody/tr[2]/td[1]"));
         int idCol = Integer.parseInt(col.getText());
@@ -63,9 +63,9 @@ public class ConfigControllerTest {
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("hieu@gmail.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[@type='submit']")).submit();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button/span[text()='Thay đổi cấu hình']")).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]/div/img")).click();
         driver.findElement(By.xpath("//input[@class='ant-input-number-input']")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.xpath("//input[@class='ant-input-number-input']")).sendKeys(Keys.DELETE);
