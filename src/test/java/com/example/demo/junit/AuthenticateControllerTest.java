@@ -201,7 +201,7 @@ public class AuthenticateControllerTest {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         UserDetails userDetails = userDetailsService.loadUserByUsername(email);
         String token = jwtTokenUtil.generateToken(userDetails);
-        mvc.perform(MockMvcRequestBuilders.delete("/user/134")
+        mvc.perform(MockMvcRequestBuilders.delete("/user/157")
                 .header("Authorization", "Bearer " + token))
                 .andExpect(status().is(200));
 

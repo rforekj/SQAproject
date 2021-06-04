@@ -259,7 +259,7 @@ public class ClientControllerTest {
 
     @After
     public void closeBrowser() {
-        //driver.close();
+        driver.close();
     }
 
     public void takeScreenshot(String pathname) throws IOException {
